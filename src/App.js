@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import Login from './components/login';
 import Register from './components/register';
 import Home from './components/home';
+import User from './components/user';
 
 class App extends React.Component {
     render(){
@@ -12,6 +13,7 @@ class App extends React.Component {
         <Navbar />
         <div className='container mt-3'>
             <Routes>
+            <Route path='/users/:id' Component={User}/>    
             <Route path='/users' Component={Users} />
             <Route path='/login' Component={Login} />
             <Route path='/register' Component={Register} />
