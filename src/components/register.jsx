@@ -5,3 +5,5 @@ class Register extends React.Component {
         return <h1>Register</h1>
     }
 }
+
+export default Register;
