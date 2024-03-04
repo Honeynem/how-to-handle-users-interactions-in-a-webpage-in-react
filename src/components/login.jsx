@@ -38,6 +38,12 @@ class Login extends React.Component {
             try{
                 this.setState({sending: true})
                 const response = await axios.post('https://reqres.in/api/login', result)
+
+                //saving data in browser for authetication token
+                localStorage.setItem('token', response.data.token)
+                this.props.history.replace('/dashboard')
+
+
                 this.setState({sending: false})
             console.log(response)
             } catch(error){
@@ -48,8 +54,8 @@ class Login extends React.Component {
         }
     }
 
-    handleChange = (e)=>{
-        const input = e.currentTarget
+    handleChange = async(e)=>{
+        const input = e.target
         const account = {...this.state.account}
         account[input.name] = input.value
         this.setState({account})
