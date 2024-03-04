@@ -41,7 +41,9 @@ class Login extends React.Component {
 
                 //saving data in browser for authetication token
                 localStorage.setItem('token', response.data.token)
-                this.props.history.replace('/dashboard')
+                // this.props.history.replace('/dashboard')
+                window.location = './dashboard'
+                //after this browser will be refreshed and states wil change and component did mount will load again
 
 
                 this.setState({sending: false})

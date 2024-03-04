@@ -7,6 +7,7 @@ import Register from './components/register';
 import Home from './components/home';
 import User from './components/user';
 import Dashboard from './components/dashboard';
+import Logout from './components/logout';
 
 class App extends React.Component {
     state = {
@@ -53,6 +54,7 @@ class App extends React.Component {
             <Route path='/users' Component={Users} />
             <Route path='/login' Component={Login} />
             <Route path='/dashboard' Component={Dashboard} />
+            <Route path='/logout' Component={Logout} />
             <Route path='/register' Component={Register} />
             <Route path='/' Component={Home} />
             </Routes>
