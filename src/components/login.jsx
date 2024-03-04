@@ -10,7 +10,8 @@ class Login extends React.Component {
             email: '',
             password: ''
         },
-        errors: []
+        errors: [],
+        sending: false
     }
 
     validate = async()=>{
@@ -35,9 +36,12 @@ class Login extends React.Component {
         const result = await this.validate()
         if (result){
             try{
+                this.setState({sending: true})
                 const response = await axios.post('https://reqres.in/api/login', result)
+                this.setState({sending: false})
             console.log(response)
             } catch(error){
+                this.setState({sending: false})
                 this.setState({errors: ['email or password is not correct']})
 
             }
@@ -78,7 +82,7 @@ class Login extends React.Component {
                 <Input name='email' value='email' label='Email'onChange={this.handleChange} />
                 <Input name='password' value='password' label='Password' onChange={this.handleChange} />
                 
-                <button className="btn btn-primary">Login</button>
+                <button disabled={this.state.sending} className="btn btn-primary">Login</button>
             </form>
             </>
         )
